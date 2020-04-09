@@ -19,7 +19,7 @@ connection.once('open', () => {
 })
 
 const exercisesRouter = require('./routes/exercises')
-const usersRouter = require('./routes/users')
+const usersRouter = require('./routes/photos')
 
 app.use('./exercises', exercisesRouter)
 app.use('./users', usersRouter)

@@ -1,21 +1,25 @@
 const router = require('express').Router();
-let User = require('../models/user.model');
+let Photo = require('../models/photo.model');
 
 router.route('/').get((req, res) => {
-    User.find()
+    Photo.find()
         .then(users => res.json(users))
         .catch(err => res.status(400).json('Error: ' + err));
 });
 
 router.route('/add').post((req, res) => {
     // Did Not Set Up Schema
-    const username = req.body.username;
+    const title = req.body.title;
+    const category = req.body.category;
 
-    const newUser = new User({username});
+    const newPhoto = new Photo({
+        title,
+        category
+    });
 
-    newUser.save()
-        .then(() => res.json('User added!'))
+    newPhoto.save()
+        .then(() => res.json('Photo added!'))
         .catch(err => res.status(400).json('Error: ' + err))
 })
 
-module.exports = router;
+module.exports = Photos;

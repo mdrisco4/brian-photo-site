@@ -1,8 +1,11 @@
-import { Schema, Mongoose } from "mongoose";
+// import { Schema, Mongoose } from "mongoose";
+const mongoose = require('mongoose')
+
+const Schema = mongoose.Schema
 
 const exerciseSchema = new Schema({
 })
 
-const Exercise = Mongoose.model('User', exerciseSchema);
+const Exercise = mongoose.model('User', exerciseSchema);
 
 module.exports = Exercise;

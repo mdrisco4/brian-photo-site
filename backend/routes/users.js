@@ -11,7 +11,7 @@ router.route('/add').post((req, res) => {
     // Did Not Set Up Schema
     const username = req.body.username;
 
-    const newUser = new User((username));
+    const newUser = new User({username});
 
     newUser.save()
         .then(() => res.json('User added!'))

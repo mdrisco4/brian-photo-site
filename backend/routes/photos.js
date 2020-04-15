@@ -1,25 +1,12 @@
-const router = require('express').Router();
-let Photo = require('../models/photo.model');
+// import your express library and your controller
+// This will allow us to access a particular method and match it to a route
+const express = require('../../node_modules/express')
+const photosController = require('../controllers/photos')
 
-router.route('/').get((req, res) => {
-    Photo.find()
-        .then(photos => res.json(photos))
-        .catch(err => res.status(400).json('Error: ' + err));
-});
+// Access the express router, which comes with the library
+const photosRouter = express.Router()
 
-router.route('/add').post((req, res) => {
-    // Did Not Set Up Schema
-    const title = req.body.title;
-    const category = req.body.category;
+// Assign each key from my controller to a specific route
+photosRouter.get('/', bookmarksController.index)
 
-    const newPhoto = new Photo({
-        title,
-        category
-    });
-
-    newPhoto.save()
-        .then(() => res.json('Photo added!'))
-        .catch(err => res.status(400).json('Error: ' + err))
-})
-
-module.exports = Photos;
+module.exports = photosRouter

@@ -3,7 +3,7 @@ let Photo = require('../models/photo.model');
 
 router.route('/').get((req, res) => {
     Photo.find()
-        .then(users => res.json(users))
+        .then(photos => res.json(photos))
         .catch(err => res.status(400).json('Error: ' + err));
 });
 
